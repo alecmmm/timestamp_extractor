@@ -49,4 +49,9 @@ df["last_date_modified"] = pd.to_datetime(df["last_date_modified"], unit='s')
 #convert to EST
 df["date_created"] = df["date_created"].dt.tz_localize("GMT").dt.tz_convert('US/Eastern').dt.tz_localize(None)
 df["last_date_modified"] = df["last_date_modified"].dt.tz_localize("GMT").dt.tz_convert('US/Eastern').dt.tz_localize(None)
+
+#print to csv
 df.to_csv("time_stamps.csv")
+print_msg = "\ntimestamp.csv printed to " + os.getcwd()
+print_msg_len = len(print_msg)
+print("=" * print_msg_len + print_msg + "\n" + "=" * print_msg_len)
